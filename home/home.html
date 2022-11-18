@@ -1,0 +1,27 @@
+<form name="projectForm">
+  <md-autocomplete
+    md-input-id="input-project-name"
+    md-input-name="projectName"
+    md-no-asterisk
+    md-floating-label="Project name"
+    md-items="item in $ctrl.projects"
+    md-item-text="item.name"
+    md-selected-item="$ctrl.project"
+    md-select-on-match="true"
+    md-autofocus
+    required
+    aria-describedby="project-name-description"
+    flex
+  >
+    <md-item-template>
+      <span> {{item.name}} </span>
+    </md-item-template>
+    <div
+      ng-messages="projectForm.projectName.$error"
+      ng-if="projectForm.projectName.$touched"
+    >
+      <div ng-message="required">Project name is required.</div>
+    </div>
+    <div id="project-name-description">Descriptive text</div>
+  </md-autocomplete>
+</form>
